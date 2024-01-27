@@ -16,7 +16,7 @@ fn main() {
     println!("Looks like we're all done!\n");
   }
   if args.len()==4 {
-    let path = "/home/ubuntu/projects/ass_reader/asses.csv";
+    let path = "/home/anon/code/rusting/robobuttlove/ass_reader/asses.csv";
     let mut vec = Vec::new();
     let mut name = String::new();
     let first_name = &args[1];
@@ -123,8 +123,8 @@ fn build_user (name:String, age:i32, ass:String) -> User {
 
 fn write_info(user:User) -> String {
   let mut filename = String::new();
-  filename.push_str("/home/ubuntu/projects/ass_reader/json/");
-  filename.push_str(&user.name.replace(" ",""));
+  filename.push_str("/home/anon/code/rusting/robobuttlove/ass_reader/json/");
+  filename.push_str(&user.name.replace(" ","").to_lowercase());
   filename.push_str(&(user.age.to_string()));
   filename.push_str(".json");
   let filename = filename.trim();
