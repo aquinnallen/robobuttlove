@@ -27,7 +27,7 @@ def serve_image():
   ass = image_request['ass']
   image_selection = image_request['image_selection']
   if age < 18:
-    return json.dumps({"url":"https://www.google.com/search?q=help+for+minor+attracted+persons"}) , 200
+    return "https://www.google.com/search?q=help+for+minor+attracted+persons" , 200
   url = make_image(name, age, ass, image_selection)
   res_url = {"url":url}
   response = api.response_class(
