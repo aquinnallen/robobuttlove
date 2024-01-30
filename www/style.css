@@ -1,0 +1,49 @@
+body {
+  background-color:#ff0000
+}
+.main-grid {
+  width:100%;
+  display:grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr 3fr;
+  height:auto;
+  gap: 10px;
+  grid-template-areas:
+    "headline headline"
+    "input-block image";
+
+}
+
+.headline{
+  grid-area:headline;
+  
+}
+
+.input-block{
+  width:auto;
+  background-color:#ff1010;
+  grid-area: input-block;
+  display: flex;
+  padding: 10px;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+}
+
+.input-field-fn{
+  padding:10px;
+}
+.input-field-ln{ 
+  padding:10px;
+}
+.input-field-ag{
+  padding:10px;
+}
+.input-field-sb{
+  padding:10px;
+}
+
+.card-img{
+  width:auto;
+  grid-area: image;
+}

@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html>
-  <body id="body">
+  <head>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body class="body">
+    <div class="main-grid">
+    <div class="headline">
     <h1>Enter your info to get a custom valentine!</h1>
+    </div>
+    <div class="input-block">
      <div class="input-field">
       <label for="first_name"> First Name: <label>
       <input type="text" id="first_name" required minlength="1" maxlength="12" size="13" value="Test"/>
@@ -18,8 +25,9 @@
       <label for="age"> Submit: <label>
       <input type="button" id="submit" value="Get your valentine!"/>
      </div>
-     <br>
-     <img id="card_img" src="http://robobuttlove.com/imgs/robolovetestuser24.png">
+    </div>
+     <img id="card-img" src="http://robobuttlove.com/imgs/robolovetestuser24.png">
+    </div>
   </body>
   <script>
 
@@ -50,7 +58,7 @@ async function fetch_card(name,age){
   const text_url = "http://robobuttlove.com:455/returnass" 
   const img_url = "http://robobuttlove.com:4555/stampimage"
   const text_booty = await get_booty(text_url, img_url, user_info);
-  let cur_img  = document.getElementById("card_img")
+  let cur_img  = document.getElementById("card-img")
   let img = document.createElement('img')
   img.src = (text_booty["url"])
   cur_img.src=img.src
