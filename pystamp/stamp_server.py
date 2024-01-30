@@ -1,7 +1,9 @@
 from flask import Flask, json, jsonify, request
 from PIL import Image, ImageDraw, ImageFont
+from flask_cors import CORS
 
 api = Flask(__name__)
+CORS(api)
 
 @api.route('/check', methods = ['GET'])
 def  get_check():
@@ -27,10 +29,17 @@ def serve_image():
   if age < 18:
     return "https://www.google.com/search?q=help+for+minor+attracted+persons" , 200
   url = make_image(name, age, ass, image_selection)
-  return url, 200
+  res_url = {"url":url}
+  response = api.response_class(
+    response=json.dumps(res_url),
+    status = 200,
+    mimetype='application.json'
+  )
+  response.headers.add('Access-Control-Allow-Origin', '*')
+  return response
 
 def make_image(name, age, ass, image_selection):
-  ass = ass.split(',')
+  ass = ass.split(' ')
   color = (255,255,255)
   img_path = ''
   maybe_n = ''
@@ -38,11 +47,9 @@ def make_image(name, age, ass, image_selection):
     maybe_n = 'n'
   selection_info = image_selection.split(',')
   location = (int(selection_info[0]),int(selection_info[1]))
-  pretty_name = name.split(',')
-  pretty_name = ' '.join(pretty_name[::-1])
   font = ImageFont.truetype(r'/var/www/robobuttlove.com/ecard_services/fonts/impact.ttf', 20)
-  message = f'Hello {pretty_name}!!!\nYou have a{maybe_n} {ass[0]}\n{ass[1]} booty! \nI can\'t get enough of it!'
-  filename = (name+str(age)+".png").lower().replace(",","")
+  message = f'Hello {name}!!!\nYou have a{maybe_n} {ass[0]}\n{ass[1]} booty! \nI can\'t get enough of it!'
+  filename = (name.replace(' ','')+str(age)+".png").lower().replace(",","")
   img_path = f'/var/www/robobuttlove.com/ecard_services/images/{selection_info[2]}.png'
   img = Image.open(img_path)
   image_drawing = ImageDraw.Draw(img)

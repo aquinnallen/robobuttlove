@@ -1,4 +1,5 @@
-use actix_web::{error, get, post, web, App, HttpResponse, HttpServer, Responder};
+use actix_web::{error,http, get, post, web, App, HttpResponse, HttpServer, Responder};
+use actix_cors::Cors;
 use serde::{Serialize, Deserialize};
 use serde_json::json;
 use actix_web::web::Json;
@@ -20,6 +21,7 @@ async fn serve_ass(ass_req: Json<ass_reader::AssReq>) -> impl Responder {
 async fn main() ->std::io::Result<()> {
   HttpServer::new(|| {
     App::new()
+      .wrap(Cors::permissive())
       .service(serve_ass)
       .service(test)
   })
