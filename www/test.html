@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="stylesheet" type="text/css" href="test-style.css" />
   </head>
   <body class="body">
     <div class="main-grid">
@@ -10,19 +10,20 @@
     </div>
     <div class="input-block">
      <div class="input-field">
-      <label class="label" for="first_name"> First Name:   </label>
-      <input class="input" type="text" id="first_name" required minlength="1" maxlength="12" size="13" value="Test"/>
+      <label for="first_name"> First Name: <label>
+      <input type="text" id="first_name" required minlength="1" maxlength="12" size="13" value="Test"/>
      </div>
      <div class="input-field">
-      <label class="label" for="last_name">Last Name:   </label>
-      <input class="input" type="text" id="last_name" required minlength="1" maxlength="12" size="13" pattern="[A-Za-z]" value="User"/>
+      <label for="last_name">Last Name: <label>
+      <input type="text" id="last_name" required minlength="1" maxlength="12" size="13" pattern="[A-Za-z]" value="User"/>
      </div>
      <div class="input-field">
-      <label class="label" for="age"> Age:   </label>
-      <input class="input" type="text" id="age" required minlength="1" maxlength="4" size="6" pattern="[0-9]" value="24"/>
+      <label for="age"> Age: <label>
+      <input type="text" id="age" required minlength="1" maxlength="4" size="6" pattern="[0-9]" value="24"/>
      </div>
      <div class="input-field">
-      <input class="input" type="button" id="submit" value="Get your valentine!"/>
+      <label for="submit"> Submit: <label>
+      <input type="button" id="submit" value="Get your valentine!"/>
      </div>
     </div>
      <img id="user-card-img" src="http://robobuttlove.com/imgs/robolovetestuser24.png">

@@ -21,7 +21,7 @@ body {
   
 }
 
-.input-block {
+.input-block{
   width:20rem;
   background-color:#ff1010;
   grid-area: input-block;
@@ -32,25 +32,17 @@ body {
   flex-direction:column;
 }
 
-
-
-.input-field {
+.input-field-fn{
   padding:1rem;
-  display:grid;
-  grid-template-columns:auto auto;
-  grid-template-areas:
-    "label input";
 }
-
-.label {
-  grid-area:label;
-  display:flex;
-  justify-content:right;
+.input-field-ln{ 
+  padding:1rem;
 }
-
-.input {
-  margin-left:2rem;
-  grid-area:input;
+.input-field-ag{
+  padding:1rem;
+}
+.input-field-sb{
+  padding:1rem;
 }
 
 .card-selector{
@@ -58,7 +50,7 @@ body {
   display:flex;
 }
 
-.selector-headline {
+.selector-headline{
  width:100%;
  grid-area:selector-headline;
  justify-content:center;
